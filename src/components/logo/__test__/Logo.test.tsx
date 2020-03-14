@@ -1,15 +1,15 @@
 import React from 'react';
 import { default as TestRenderer } from 'react-test-renderer';
-import { default as App } from './App';
+import { default as Logo } from '../Logo';
 
-describe('<App />', (): void => {
+describe('<Logo /> component', (): void => {
   let componentInstance: TestRenderer.ReactTestRenderer;
 
   beforeEach((): void => {
-    componentInstance = TestRenderer.create(<App />);
+    componentInstance = TestRenderer.create(<Logo />);
   });
 
-  it('Should create a <App /> component instance', (): void => {
+  it('Should create a <Logo /> component instance', (): void => {
     expect(componentInstance).toBeDefined();
   });
 });

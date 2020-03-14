@@ -1,15 +1,15 @@
 import React from 'react';
 import { default as TestRenderer } from 'react-test-renderer';
-import { default as App } from './App';
+import { default as MainPage } from '../MainPage';
 
-describe('<App />', (): void => {
+describe('<MainPage /> component', (): void => {
   let componentInstance: TestRenderer.ReactTestRenderer;
 
   beforeEach((): void => {
-    componentInstance = TestRenderer.create(<App />);
+    componentInstance = TestRenderer.create(<MainPage />);
   });
 
-  it('Should create a <App /> component instance', (): void => {
+  it('Should create a <MainPage /> component instance', (): void => {
     expect(componentInstance).toBeDefined();
   });
 });
