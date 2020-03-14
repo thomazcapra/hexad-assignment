@@ -1,12 +1,12 @@
-import { IGame } from '../context';
 import { BehaviorSubject, Subject } from 'rxjs';
+import { IGame } from '../context';
 import initialState from '../mock_data/game_list.json';
 
 interface IGameService {
   buttonActive$: Subject<boolean>;
   gameList$: BehaviorSubject<IGame[]>;
 
-  shuffle(): void;
+  shuffle(): Promise<void>;
 }
 
 class GameService implements IGameService {
@@ -26,7 +26,18 @@ class GameService implements IGameService {
   /**
    * @inheritdoc
    */
-  shuffle(): void {}
+  async shuffle(): Promise<void> {
+    const gameList = await this.gameList$.value;
+    gameList.forEach((game: IGame) => {
+      game.rating = this.randomInt(0, 5);
+    });
+
+    this.gameList$.next(gameList);
+  }
+
+  private randomInt(min: number, max: number) {
+    return min + Math.floor((max - min) * Math.random());
+  }
 }
 
 export default GameService.getInstance();

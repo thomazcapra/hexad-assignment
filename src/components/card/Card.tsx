@@ -8,12 +8,12 @@ import {
 import Rating from '@material-ui/lab/Rating';
 import React from 'react';
 import {
-  IGame,
-  useGlobalContext,
+  GlobalActionTypes,
   GlobalContextAction,
-  GlobalActionTypes
+  IGame,
+  useGlobalContext
 } from '../../context';
-import { RatePayload } from './../../context/GlobalContext.models';
+import { RatePayload } from './../../context';
 
 const useStyles = makeStyles(theme => ({
   root: {
