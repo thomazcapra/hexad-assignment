@@ -1,12 +1,6 @@
+import { IGame } from '../context';
 import { BehaviorSubject, Subject } from 'rxjs';
-
 import initialState from '../mock_data/game_list.json';
-
-export interface IGame {
-  name: string;
-  image: string;
-  rating: number;
-}
 
 interface IGameService {
   buttonActive$: Subject<boolean>;

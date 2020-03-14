@@ -1,6 +1,7 @@
 import { createMuiTheme, CssBaseline, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import { MainPage } from './containers';
+import { GlobalContextProvider } from './context/GlobalContext';
 
 class App extends React.Component {
   render(): JSX.Element {
@@ -11,10 +12,12 @@ class App extends React.Component {
     });
 
     return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <MainPage data-testid='main-page' />
-      </ThemeProvider>
+      <GlobalContextProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <MainPage data-testid='main-page' />
+        </ThemeProvider>
+      </GlobalContextProvider>
     );
   }
 }

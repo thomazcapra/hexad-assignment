@@ -7,7 +7,13 @@ import {
 } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import React from 'react';
-import { IGame } from './../../service/GameService';
+import {
+  IGame,
+  useGlobalContext,
+  GlobalContextAction,
+  GlobalActionTypes
+} from '../../context';
+import { RatePayload } from './../../context/GlobalContext.models';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,9 +32,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export const AppCard = (props: IGame): JSX.Element => {
-  const { name, rating, image } = props;
-
-  const [value, setValue] = React.useState(rating);
+  const { name, rating, image, id } = props;
+  const [, dispatch] = useGlobalContext();
 
   const classes = useStyles();
 
@@ -45,10 +50,15 @@ export const AppCard = (props: IGame): JSX.Element => {
         <Rating
           name={image}
           size='large'
-          value={value}
+          value={rating}
           className={classes.rating}
           onChange={(event, newValue) => {
-            setValue(newValue ?? value);
+            dispatch(
+              new GlobalContextAction<GlobalActionTypes, RatePayload>(
+                GlobalActionTypes.RATE_GAME,
+                { id, rating: newValue ?? rating }
+              )
+            );
           }}
         />
       </CardContent>
