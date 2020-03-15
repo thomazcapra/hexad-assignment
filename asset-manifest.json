@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/hexad-assignment/static/css/main.c169cfc1.chunk.css",
-    "main.js": "/hexad-assignment/static/js/main.f9b1695c.chunk.js",
-    "main.js.map": "/hexad-assignment/static/js/main.f9b1695c.chunk.js.map",
+    "main.js": "/hexad-assignment/static/js/main.ec2d9ff3.chunk.js",
+    "main.js.map": "/hexad-assignment/static/js/main.ec2d9ff3.chunk.js.map",
     "runtime-main.js": "/hexad-assignment/static/js/runtime-main.e794c374.js",
     "runtime-main.js.map": "/hexad-assignment/static/js/runtime-main.e794c374.js.map",
     "static/js/2.16141664.chunk.js": "/hexad-assignment/static/js/2.16141664.chunk.js",
     "static/js/2.16141664.chunk.js.map": "/hexad-assignment/static/js/2.16141664.chunk.js.map",
     "index.html": "/hexad-assignment/index.html",
-    "precache-manifest.19977ca1a78a615e132db3f7197e8b74.js": "/hexad-assignment/precache-manifest.19977ca1a78a615e132db3f7197e8b74.js",
+    "precache-manifest.ad298f3d04dccdc49083b595c128dd4a.js": "/hexad-assignment/precache-manifest.ad298f3d04dccdc49083b595c128dd4a.js",
     "service-worker.js": "/hexad-assignment/service-worker.js",
     "static/css/main.c169cfc1.chunk.css.map": "/hexad-assignment/static/css/main.c169cfc1.chunk.css.map",
     "static/js/2.16141664.chunk.js.LICENSE.txt": "/hexad-assignment/static/js/2.16141664.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.e794c374.js",
     "static/js/2.16141664.chunk.js",
     "static/css/main.c169cfc1.chunk.css",
-    "static/js/main.f9b1695c.chunk.js"
+    "static/js/main.ec2d9ff3.chunk.js"
   ]
 }
