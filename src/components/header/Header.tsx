@@ -2,7 +2,7 @@ import { Box, Typography } from '@material-ui/core';
 import { default as SportsEsportsIcon } from '@material-ui/icons/SportsEsports';
 import React from 'react';
 
-const Header = () => {
+const Header = (): JSX.Element => {
   return (
     <Box
       style={{

@@ -2,7 +2,7 @@ import { Box } from '@material-ui/core';
 import React from 'react';
 import logo from '../../assets/images/hexad-small-logo.png';
 
-const Logo = () => {
+const Logo = (): JSX.Element => {
   return (
     <Box
       style={{

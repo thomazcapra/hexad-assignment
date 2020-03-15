@@ -1,9 +1,9 @@
-import React from 'react';
 import { Box, Typography } from '@material-ui/core';
+import React from 'react';
 import footerImage from '../../assets/images/footer.jpg';
 import { Logo } from '../logo';
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <Box
       style={{
