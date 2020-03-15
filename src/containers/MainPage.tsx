@@ -14,7 +14,7 @@ import { GameService } from '../service';
 
 export default class MainPage extends React.Component<
   {},
-  { onDestroy: Subject<void> }
+  { onDestroy$: Subject<void> }
 > {
   static contextType = GlobalContext;
   context!: React.ContextType<typeof GlobalContext>;
