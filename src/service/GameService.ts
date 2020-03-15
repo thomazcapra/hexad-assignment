@@ -29,14 +29,14 @@ class GameService implements IGameService {
   async shuffle(): Promise<void> {
     const gameList = await this.gameList$.value;
     gameList.forEach((game: IGame) => {
-      game.rating = this.randomInt(0, 5);
+      game.rating = this.randomInt(1, 5);
     });
 
     this.gameList$.next(gameList);
   }
 
   private randomInt(min: number, max: number) {
-    return min + Math.floor((max - min) * Math.random());
+    return min + Math.floor((max + 1 - min) * Math.random());
   }
 }
 
