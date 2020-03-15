@@ -12,22 +12,23 @@ import {
 } from '../context';
 import { GameService } from '../service';
 
-export default class MainPage extends React.Component<
-  {},
-  { onDestroy$: Subject<void> }
-> {
+interface MainPageState {
+  onDestroy$: Subject<void>;
+}
+
+export default class MainPage extends React.Component<{}, MainPageState> {
   static contextType = GlobalContext;
   context!: React.ContextType<typeof GlobalContext>;
 
-  state = {
-    onDestroy: new Subject<void>()
+  state: MainPageState = {
+    onDestroy$: new Subject<void>()
   };
 
   public componentDidMount(): void {
     const [, dispatch] = this.context;
 
     GameService.gameList$
-      .pipe(takeUntil(this.state.onDestroy))
+      .pipe(takeUntil(this.state.onDestroy$))
       .subscribe((games: IGame[]): void => {
         dispatch(
           new GlobalContextAction<GlobalActionTypes, IGame[]>(
@@ -39,7 +40,7 @@ export default class MainPage extends React.Component<
   }
 
   public componentWillUnmount(): void {
-    this.state.onDestroy.next();
+    this.state.onDestroy$.next();
   }
 
   private sortGamesByRating(games: IGame[]): IGame[] {
