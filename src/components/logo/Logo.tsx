@@ -10,8 +10,9 @@ const Logo = () => {
       }}
     >
       <img
+        data-testid='logo-img'
         className='app-logo'
-        alt={'logo'}
+        alt='logo'
         style={{
           height: '3rem',
           width: '3rem'
