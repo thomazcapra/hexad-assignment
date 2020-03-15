@@ -64,6 +64,7 @@ export default class MainPage extends React.Component<
       <Container maxWidth='xl'>
         <Header />
         <Box
+          data-testid='page-body'
           style={{
             display: 'flex',
             flexWrap: 'wrap',

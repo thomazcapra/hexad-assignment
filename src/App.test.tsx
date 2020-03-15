@@ -3,6 +3,8 @@ import { default as TestRenderer, act } from 'react-test-renderer';
 import { default as App } from './App';
 import * as Icons from '@material-ui/icons';
 
+jest.useFakeTimers();
+
 describe('<App />', (): void => {
   let componentInstance: TestRenderer.ReactTestRenderer;
 
@@ -26,6 +28,8 @@ describe('<App />', (): void => {
     act((): void => {
       shuffleIcon.props.onClick();
     });
+
+    jest.runOnlyPendingTimers();
 
     expect(spyOnShuffle).toHaveBeenCalledTimes(1);
   });

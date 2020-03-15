@@ -56,4 +56,21 @@ describe('GlobalContext', (): void => {
       expect.objectContaining(payloadMock[0])
     );
   });
+
+  it('Should not change the state if the action type is not valid', (): void => {
+    const initialState: IGlobalContext = {
+      ids: payloadMock.map(g => g.id),
+      gamesDictionary: {}
+    };
+
+    const newState = reducer(
+      initialState,
+      new GlobalContextAction<GlobalActionTypes, GlobalPayloadType>(
+        'INVAlID_ACTION_TYPE' as GlobalActionTypes,
+        payloadMock
+      )
+    );
+
+    expect(initialState).toEqual(newState);
+  });
 });
