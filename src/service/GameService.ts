@@ -1,18 +1,22 @@
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { IGame } from '../context';
-import initialState from '../mock_data/game_list.json';
+import initialGameList from '../mock_data/game_list.json';
 
 interface IGameService {
-  buttonActive$: Subject<boolean>;
+  /**
+   * The game list behaviourSubject.
+   */
   gameList$: BehaviorSubject<IGame[]>;
 
+  /**
+   * Shuffles the games list changing the rating randonly.
+   */
   shuffle(): Promise<void>;
 }
 
 class GameService implements IGameService {
-  public buttonActive$ = new Subject<boolean>();
   public gameList$: BehaviorSubject<IGame[]> = new BehaviorSubject<IGame[]>(
-    initialState
+    initialGameList
   );
 
   private static _instance = new GameService();
@@ -35,6 +39,11 @@ class GameService implements IGameService {
     this.gameList$.next(gameList);
   }
 
+  /**
+   * Generate a random int between {min} and {max}.
+   * @param min lower limit.
+   * @param max  higher limit.
+   */
   private randomInt(min: number, max: number) {
     return min + Math.floor((max + 1 - min) * Math.random());
   }

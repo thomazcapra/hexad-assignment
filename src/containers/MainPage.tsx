@@ -43,6 +43,10 @@ export default class MainPage extends React.Component<
   }
 
   private sortGamesByRating(games: IGame[]): IGame[] {
+    if (!games?.length) {
+      return [];
+    }
+
     return games.sort(
       ({ rating: firstRating }: IGame, { rating: secondRating }: IGame) =>
         secondRating - firstRating
