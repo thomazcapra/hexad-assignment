@@ -20,7 +20,7 @@ describe('<MainPage /> component', (): void => {
   });
 
   it('Should kill all subscriptions on destroy', (): void => {
-    const spyOnDestroy = jest.spyOn(mainPage.state.onDestroy, 'next');
+    const spyOnDestroy = jest.spyOn(mainPage.state.onDestroy$, 'next');
 
     expect(spyOnDestroy).not.toHaveBeenCalled();
 
